@@ -1,0 +1,49 @@
+reset
+set datafile separator comma
+set term png #output terminal and file
+set xlabel "Cycles"
+set format y "%.3f"
+set autoscale
+
+set style line 1  lc rgb '#0025ad' lt 1 lw 3
+set style line 2  lc rgb '#09ad00' lt 1 lw 3
+
+set output "reductions.png"
+plot "stats.output.20" using 1:7 lw 3 w l sm b title "20.3", \
+     "stats.output.21" using 1:7 lw 3 w l sm b title "21.0rc2"
+
+set output "mem.png"
+plot "stats.output.20" using 1:3 lw 3 w l sm b title "20.3", \
+     "stats.output.21" using 1:3 lw 3 w l sm b title "21.0rc2"
+
+set yrange [4000:15000]
+set output "cycle_time.png"
+plot "stats.output.20" using 1:4 lw 3 w l sm b title "20.3", \
+     "stats.output.21" using 1:4 lw 3 w l sm b title "21.0rc2"
+
+set autoscale
+set output "rt.png"
+plot "stats.output.20" using 1:5 lw 3 w l sm b title "20.3", \
+     "stats.output.21" using 1:5 lw 3 w l sm b title "21.0rc2"
+
+set output "rt_and_ct.png"
+plot "stats.output.20" using 1:5:6 lw 3,3 w l sm b title "20.3", \
+     '' using 1:5 w l title 'y1', \
+     '' using 1:6 w l title 'y2', \
+     "stats.output.21" using 1:5:6 lw 3,3 w l sm b title "21.0rc2", \
+     '' using 1:5 w l title 'y1', \
+     '' using 1:6 w l title 'y2'
+
+set yrange [0.1:0.18]
+set output "utilization.png"
+plot "stats.output.20" every ::100 using 1:9 lw 3 w l sm b title "20.3", \
+     "stats.output.21" every ::100 using 1:9 lw 3 w l sm b title "21.0rc2"
+
+set autoscale
+set output "gc_runs.png"
+plot "stats.output.20" every ::100 using 1:10 lw 3 w l sm b title "20.3", \
+     "stats.output.21" every ::100 using 1:10 lw 3 w l sm b title "21.0rc2"
+
+set output "gc_words_reclaimed.png"
+plot "stats.output.20" every ::100 using 1:11 lw 3 w l sm b title "20.3", \
+     "stats.output.21" every ::100 using 1:11 lw 3 w l sm b title "21.0rc2"

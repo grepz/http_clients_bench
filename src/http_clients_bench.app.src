@@ -1,0 +1,19 @@
+{application, http_clients_bench,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { http_clients_bench_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    ibrowse,
+    cowboy,
+    hackney
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.
