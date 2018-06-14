@@ -211,7 +211,7 @@ hackney_req(Cycle) ->
     ok.
 
 ibrowse_req(Cycle) ->
-    case ibrowse:send_req(?URL, [], get, [Cycle], [], infinity) of
+    case ibrowse:send_req(?URL, [], get, [as_binary(Cycle)], [], infinity) of
         {ok, "200", _, _} -> ok;
         {error, retry_later} ->
             timer:sleep(1),
@@ -252,3 +252,18 @@ prepare_hackney() ->
 prepare_ibrowse() ->
     _ = ibrowse:start(),
     ok.
+
+as_binary(Integer) when is_integer(Integer) ->
+	as_binary(integer_to_list(Integer));
+
+as_binary(List) when is_list(List) ->
+	list_to_binary(List);
+
+as_binary(Atom) when is_atom(Atom) ->
+	atom_to_binary(Atom, latin1);
+
+as_binary(Binary) when is_binary(Binary) ->
+	Binary;
+
+as_binary(_Any) ->
+	throw(badarg).

@@ -34,7 +34,7 @@ plot "stats.output.20" using 1:5:6 lw 3,3 w l sm b title "20.3", \
      '' using 1:5 w l title 'y1', \
      '' using 1:6 w l title 'y2'
 
-set yrange [0.1:0.18]
+set autoscale
 set output "utilization.png"
 plot "stats.output.20" every ::100 using 1:9 lw 3 w l sm b title "20.3", \
      "stats.output.21" every ::100 using 1:9 lw 3 w l sm b title "21.0rc2"
