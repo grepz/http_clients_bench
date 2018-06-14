@@ -1,7 +1,7 @@
 http_clients_bench
 =====
 
-Benchmark for hackney and ibrowse HTTP clients.
+Benchmark for hackney and ibrowse HTTP clients. Testing against Erlang 20.3 and Erlang 21.0rc2.
 
 Tweak benching parameters if needed.
 
