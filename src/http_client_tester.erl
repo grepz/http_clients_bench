@@ -218,19 +218,6 @@ ibrowse_req(Cycle) ->
             ibrowse_req(Cycle)
     end.
 
-%% to_bin(SchedUtil) ->
-%%     to_bin(SchedUtil, "").
-
-
-%% to_bin([], Acc) -> Acc;
-%% to_bin([V | Rest], Acc) ->
-%%     VS =
-%%         case V == 0 of
-%%             true -> "0";
-%%             false -> io_lib:format("~.3f", [V])
-%%         end,
-%%     to_bin(Rest, VS ++ ", " ++ Acc).
-
 avrg(Sched) ->
     N0 = length(Sched),
     {Cum, N1} =
