@@ -1,5 +1,7 @@
 _build/
 .DS_Store
 rebar.lock
+erl_crash.dump
 .*~
+*.*~
 *.log

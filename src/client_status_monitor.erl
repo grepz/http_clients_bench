@@ -55,7 +55,7 @@ start_link() ->
 %%--------------------------------------------------------------------
 init(_) ->
     _ = erlang:system_flag(scheduler_wall_time, true),
-    _ = msacc:start(),
+    %% _ = msacc:start(),
     Mem = erlang:memory(total),
     SchedWT = lists:sort(erlang:statistics(scheduler_wall_time)),
     {ok, TRef} = timer:send_interval(200, monitor),
@@ -115,7 +115,7 @@ handle_info(monitor, #{sched_wt := SchedWTOld}) ->
           end, lists:zip(SchedWTOld, SchedWTNew)
          ),
     Mem = erlang:memory(total),
-    ok = msacc:to_file("/tmp/msacc.out"),
+    %% ok = msacc:to_file("/tmp/msacc.out"),
     NewState = #{
       sched_wt => SchedWTNew,
       sched_util_last => SchedUtil,

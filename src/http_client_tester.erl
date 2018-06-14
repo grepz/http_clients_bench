@@ -18,7 +18,7 @@
          terminate/2, code_change/3]).
 
 -define(SERVER, ?MODULE).
--define(CONC, 10).
+-define(CONC, 100).
 -define(END_CYCLE, 5000).
 -define(URL, "http://127.0.0.1:8080/fake").
 

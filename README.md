@@ -1,7 +1,7 @@
 http_clients_bench
 =====
 
-Benchmark for hackney and ibrowse HTTP clients. Testing against Erlang 20.3 and Erlang 21.0rc2.
+Benchmark for hackney and ibrowse HTTP clients. Testing against Erlang 18.3, 20.3 and Erlang 21.0rc2.
 
 Tweak benching parameters if needed.
 
@@ -10,7 +10,10 @@ Tweak benching parameters if needed.
 
 ...
 
--define(CONC, 10).
+%% Concurrency(number of requests per cycle)
+-define(CONC, 100).
+
+%% Total number of cycles
 -define(END_CYCLE, 5000).
 ```
 
